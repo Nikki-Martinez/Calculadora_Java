@@ -5,6 +5,8 @@
 package vista;
 import java.awt.Color;
 import javax.swing.ImageIcon;
+import javax.script.ScriptEngineManager;
+import javax.script.ScriptEngine;
 /**
  *
  * @author guich
@@ -16,9 +18,14 @@ public class interfazCalculadora extends javax.swing.JFrame {
     /**
      * Creates new form interfazCalculadora
      */
+    ScriptEngineManager sem = new ScriptEngineManager();
+    ScriptEngine se = sem.getEngineByName("JavaScript");
+    
+    
     public interfazCalculadora() {
         initComponents();
         setIconImage(new javax.swing.ImageIcon(getClass().getResource("/iconos/iconoCalculadora.png")).getImage());
+        setLocationRelativeTo(null);
        
     }
 
@@ -80,14 +87,12 @@ public class interfazCalculadora extends javax.swing.JFrame {
 
         lbl_operacion.setFont(new java.awt.Font("Segoe UI Emoji", 1, 18)); // NOI18N
         lbl_operacion.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lbl_operacion.setText("0");
         lbl_operacion.setMaximumSize(new java.awt.Dimension(400, 30));
         lbl_operacion.setMinimumSize(new java.awt.Dimension(400, 30));
         lbl_operacion.setPreferredSize(new java.awt.Dimension(400, 30));
 
         lbl_resultado.setFont(new java.awt.Font("Segoe UI Emoji", 1, 36)); // NOI18N
         lbl_resultado.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lbl_resultado.setText("0");
         lbl_resultado.setMaximumSize(new java.awt.Dimension(400, 30));
         lbl_resultado.setMinimumSize(new java.awt.Dimension(400, 30));
         lbl_resultado.setPreferredSize(new java.awt.Dimension(400, 30));
@@ -569,6 +574,8 @@ public class interfazCalculadora extends javax.swing.JFrame {
 
     private void btn_limpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_limpiarActionPerformed
         // TODO add your handling code here:
+        lbl_operacion.setText("");
+        lbl_resultado.setText("");
        
     }//GEN-LAST:event_btn_limpiarActionPerformed
  
@@ -578,66 +585,94 @@ public class interfazCalculadora extends javax.swing.JFrame {
 
     private void btn_porcentajeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_porcentajeActionPerformed
         // TODO add your handling code here:
+        this.agregarNumero("%");
     }//GEN-LAST:event_btn_porcentajeActionPerformed
 
     private void btn_dividirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_dividirActionPerformed
         // TODO add your handling code here:
+        this.agregarNumero("/");
     }//GEN-LAST:event_btn_dividirActionPerformed
 
     private void btn_7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_7ActionPerformed
         // TODO add your handling code here:
+        this.agregarNumero("7");
+
     }//GEN-LAST:event_btn_7ActionPerformed
 
     private void btn_8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_8ActionPerformed
         // TODO add your handling code here:
+        this.agregarNumero("8");
     }//GEN-LAST:event_btn_8ActionPerformed
 
     private void btn_9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_9ActionPerformed
         // TODO add your handling code here:
+        this.agregarNumero("9");
     }//GEN-LAST:event_btn_9ActionPerformed
 
     private void btn_6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_6ActionPerformed
         // TODO add your handling code here:
+        this.agregarNumero("6");
+
     }//GEN-LAST:event_btn_6ActionPerformed
 
     private void btn_5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_5ActionPerformed
         // TODO add your handling code here:
+        this.agregarNumero("5");
+
     }//GEN-LAST:event_btn_5ActionPerformed
 
     private void btn_menosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_menosActionPerformed
         // TODO add your handling code here:
+        this.agregarNumero("-");
+
     }//GEN-LAST:event_btn_menosActionPerformed
 
     private void btn_4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_4ActionPerformed
         // TODO add your handling code here:
+        this.agregarNumero("4");
+
     }//GEN-LAST:event_btn_4ActionPerformed
 
     private void btn_3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_3ActionPerformed
         // TODO add your handling code here:
+        this.agregarNumero("3");
     }//GEN-LAST:event_btn_3ActionPerformed
 
     private void btn_masActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_masActionPerformed
         // TODO add your handling code here:
+        this.agregarNumero("+");
+
     }//GEN-LAST:event_btn_masActionPerformed
 
     private void btn_2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_2ActionPerformed
         // TODO add your handling code here:
+        this.agregarNumero("2");
     }//GEN-LAST:event_btn_2ActionPerformed
 
     private void btn_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_1ActionPerformed
         // TODO add your handling code here:
+        this.agregarNumero("1");
     }//GEN-LAST:event_btn_1ActionPerformed
 
     private void btn_puntoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_puntoActionPerformed
         // TODO add your handling code here:
+        this.agregarNumero(".");
     }//GEN-LAST:event_btn_puntoActionPerformed
 
     private void btn_igualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_igualActionPerformed
         // TODO add your handling code here:
+        lbl_resultado.setText("Hola Mundo");
+        lbl_operacion.setText("");
+        /*  String resultado = se.eval(lbl_operacion.getText()).toString();
+          lbl_resultado.setText(resultado); 
+        }catch(Exception e){
+            
+        }*/
     }//GEN-LAST:event_btn_igualActionPerformed
 
     private void btn_0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_0ActionPerformed
         // TODO add your handling code here:
+        this.agregarNumero("0");
     }//GEN-LAST:event_btn_0ActionPerformed
 
     private void btn_mas_menosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_mas_menosActionPerformed
@@ -646,8 +681,10 @@ public class interfazCalculadora extends javax.swing.JFrame {
 
     private void btn_multiplicarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_multiplicarActionPerformed
         // TODO add your handling code here:
+        this.agregarNumero("*");
     }//GEN-LAST:event_btn_multiplicarActionPerformed
 
+    
     private void tb_claro_oscuroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tb_claro_oscuroActionPerformed
        if (tb_claro_oscuro.isSelected()) {
         tb_claro_oscuro.setText("Oscuro 🌙");
@@ -782,6 +819,10 @@ public class interfazCalculadora extends javax.swing.JFrame {
     });
 }
 
+    public void agregarNumero(String num){
+        lbl_operacion.setText(lbl_operacion.getText()+num);
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_0;
     private javax.swing.JButton btn_1;
